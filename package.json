@@ -1,0 +1,30 @@
+{
+  "version": "0.0.1",
+  "author": "Calum Bird",
+  "name": "scaffold-cli",
+  "main": "./lib/index.js",
+  "bin": {
+    "scaffold": "./lib/index.js"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^10.0.0",
+    "figlet": "^1.5.2",
+    "openai": "^3.1.0",
+    "path": "^0.12.7",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "create": "yarn run build && yarn run test",
+    "build": "tsc -p .",
+    "local": "yarn global add . && scaffold",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && yarn install"
+  }
+}
